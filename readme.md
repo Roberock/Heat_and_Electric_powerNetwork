@@ -95,7 +95,7 @@ Xnom= [x_el x_th];
 
 
 <p align="center">
-  <img src="./figs/ExampleSimulationResults.jpg"  width="650">
+  <img src="./figs/ExampleSimulationResults.jpg"  width="750">
 </p>
 
  
