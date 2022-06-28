@@ -60,7 +60,7 @@ legend('Thermal nodes', 'Electrical nodes')
 ```   
 
 <p align="center">
-  <img src="./figs/CombinedGridTopology.png" alt="Size Limit CLI" width="650">
+  <img src="./figs/CombinedGridTopology.jpg" alt="Size Limit CLI" width="650">
 </p>
 
 
@@ -95,7 +95,7 @@ Xnom= [x_el x_th];
 
 
 <p align="center">
-  <img src="./figs/ExampleSimulationResults.png"  width="650">
+  <img src="./figs/ExampleSimulationResults.jpg"  width="650">
 </p>
 
  
