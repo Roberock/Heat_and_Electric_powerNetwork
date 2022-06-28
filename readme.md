@@ -15,7 +15,7 @@ _D.mat_ data structure containing; <br />
   _Del_ data for the electrical grid; <br />
   _Dth_ data for the thermal grid ; <br />
   _Weather_ : data to simulate the weather conditions; <br />
-_DG_module.m_ : This class simulate the power production behaviour of different types of distributed generators; <br />
+_DG_module.m_ : This class simulate the power production behaviour of different types (PV, EV, ST, WT, HP) of distributed generators; <br />
 _Weather_Simulator.m_ : simulates weather conditions on the power grid given geo-location and day of the year (wind speed, irradiance, lightning strike density; <br />
 _PowEl2PowTh.m_ :   function converting electrical power to thermal power; <br />
 _OPF.m_ : Optimal power flow function considering virtual generators; <br />
