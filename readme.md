@@ -5,9 +5,9 @@
 [] X. Liu, J. Wu, N. Jenkins and A. Bagdanavicius, "Combined analysis of electricity and heat networks", Applied Energy, vol. 162, pp. 1238-1250, 2016.
 
 ## Functionality
-MC_HP.m : power production model for multi-compressor Air-to-Water HPs
-OnOff_HP.m: power production model for the On-Off Air-to_Water Heat Pumps model Maneurop SH 140-4
-HPP.m : sample from homogeneous Poisson Process HPP
+MC_HP.m : power production model for multi-compressor Air-to-Water HPs;
+OnOff_HP.m: power production model for the On-Off Air-to_Water Heat Pumps model Maneurop SH 140-4;
+HPP.m : sample from homogeneous Poisson Process HPP;
 MarkovFailure.m : randomize failures of the network components
 MC_HEATPOWER(X, D) : Monte Carlo simulation of the combined grid X= allocation matrix D=data structure for the combined grid
 D.mat data structure containing,
