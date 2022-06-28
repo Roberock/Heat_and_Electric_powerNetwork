@@ -44,7 +44,7 @@ G_el.plot
 legend('Thermal nodes', 'Electrical nodes')
 ```   
 
-![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/figs/GridTopology.jpg?raw=true)
+![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/figs/CombinedGridTopology.jpg?raw=true)
 
 
 
