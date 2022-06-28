@@ -1,5 +1,19 @@
 # Code for the simulation of a combine heat and electric network
 
+``` bibtex
+ @INPROCEEDINGS{8272792,
+  author={Rocchetta, Roberto and Patelli, Edoardo},
+  booktitle={2017 2nd International Conference on System Reliability and Safety (ICSRS)}, 
+  title={Stochastic analysis and reliability-cost optimization of distributed generators and air source heat pumps}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={31-35},
+  doi={10.1109/ICSRS.2017.8272792}}
+```
+
+ 
+
 ## Citations
 []R. Rocchetta and E. Patelli, "Stochastic analysis and reliability-cost optimization of distributed generators and air source heat pumps," 2017 2nd International Conference on System Reliability and Safety (ICSRS), 2017, pp. 31-35, doi: 10.1109/ICSRS.2017.8272792. <br />
 
@@ -45,8 +59,12 @@ G_el.plot
 legend('Thermal nodes', 'Electrical nodes')
 ```   
 
-![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/CombinedGridTopology.jpg?raw=true)
+<p align="center">
+  <img src="./figs/CombinedGridTopology.png" alt="Size Limit CLI" width="650">
+</p>
 
+
+ 
 ```
 % electrical allocation matrix
 % MS PV WT EV ST 
@@ -76,5 +94,8 @@ Xnom= [x_el x_th];
 ```   
 
 
+<p align="center">
+  <img src="./figs/ExampleSimulationResults.png" alt="Size Limit CLI" width="650">
+</p>
 
-![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/ExampleSimulationResults.jpg?raw=true)
+ 
