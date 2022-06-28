@@ -19,7 +19,8 @@ _DG_module.m_ : This class simulate the power production behaviour of different 
 _Weather_Simulator.m_ : simulates weather conditions on the power grid given geo-location and day of the year (wind speed, irradiance, lightning strike density; <br />
 _PowEl2PowTh.m_ :   function converting electrical power to thermal power; <br />
 _OPF.m_ : Optimal power flow function considering virtual generators; <br />
- 
+_Clear_Sky_IT_ : Compute clear sky irradiance
+
 ## Examples 
 _Example1_MonteCarlo.m_ : an example of reliability/resilience assessment (energy not suppllied distribution) by the combined heat and electric power grid. Carried out via Monte Carlo simulation for an allocation matrix; <br />
 _Data_intro_ElectricThermal_NetworkBarryIsalnd.m_ : step-by-step description of the combined grid data and economic dispatch simulation; <br />
