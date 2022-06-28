@@ -95,7 +95,7 @@ Xnom= [x_el x_th];
 
 
 <p align="center">
-  <img src="./figs/ExampleSimulationResults.png" alt="Size Limit CLI" width="650">
+  <img src="./figs/ExampleSimulationResults.png"  width="650">
 </p>
 
  
