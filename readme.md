@@ -24,3 +24,19 @@ _Clear_Sky_IT_ : Compute clear sky irradiance
 ## Examples 
 _Example1_MonteCarlo.m_ : an example of reliability/resilience assessment (energy not suppllied distribution) by the combined heat and electric power grid. Carried out via Monte Carlo simulation for an allocation matrix; <br />
 _Data_intro_ElectricThermal_NetworkBarryIsalnd.m_ : step-by-step description of the combined grid data and economic dispatch simulation; <br />
+
+
+
+
+```
+% electrical allocation matrix
+% MS PV WT EV ST 
+x_el=[0,11, 0,0,13   % node 1
+      1, 0,11,0, 1   % node 2
+      0,11,23,0,10   % node 3
+      0, 0,11,0,21   % node 4
+      0,11, 0,0,11   % node 5
+      0, 0, 0,0, 2   % node 6
+      1,11,11,0, 0   % node 7
+      1,11,11,0,11]; % node 8
+```    
