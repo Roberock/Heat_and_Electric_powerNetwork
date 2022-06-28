@@ -44,9 +44,7 @@ G_el.plot
 legend('Thermal nodes', 'Electrical nodes')
 ```   
 
-![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/figs/CombinedGridTopology.jpg?raw=true)
-
-
+![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/CombinedGridTopology.jpg?raw=true)
 
 ```
 % electrical allocation matrix
@@ -75,3 +73,7 @@ Xnom= [x_el x_th];
 % Run MC simulation for data structure D and thermal-eletrical allocation Xnom
 [RES] = MC_HEATPOWER(Xnom,D); 
 ```   
+
+
+
+![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/SimulationResultExample.jpg?raw=true)
