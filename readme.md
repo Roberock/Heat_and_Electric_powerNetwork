@@ -28,6 +28,7 @@ _Data_intro_ElectricThermal_NetworkBarryIsalnd.m_ : step-by-step description of 
 
 ```
 Temp=load('D.mat'); % load data
+D = Temp.D; # all data in the structure D
 Del= Temp.D.Del; % electrical grid data
 Dth= Temp.D.Dth; % thermal grid data
 Wtr= Temp.D.Weather; % weather data
@@ -44,7 +45,7 @@ G_el.plot
 legend('Thermal nodes', 'Electrical nodes')
 ```   
 
-![plot](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/CombinedGridTopology.jpg?raw=true)
+![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/CombinedGridTopology.jpg?raw=true)
 
 ```
 % electrical allocation matrix
@@ -76,4 +77,4 @@ Xnom= [x_el x_th];
 
 
 
-![plot](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/ExampleSimulationResults.jpg?raw=true)
+![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/ExampleSimulationResults.jpg?raw=true)
