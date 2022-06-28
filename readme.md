@@ -26,6 +26,26 @@ _Example1_MonteCarlo.m_ : an example of reliability/resilience assessment (energ
 _Data_intro_ElectricThermal_NetworkBarryIsalnd.m_ : step-by-step description of the combined grid data and economic dispatch simulation; <br />
 
 
+```
+Temp=load('D.mat'); % load data
+Del= Temp.D.Del; % electrical grid data
+Dth= Temp.D.Dth; % thermal grid data
+Wtr= Temp.D.Weather; % weather data
+```
+
+```
+ %% show topology of the two networks (not linked and separatelly)
+figure(10)
+G_th=graph(D.Dth.From_Node,D.Dth.To_Node);
+G_th.plot;
+hold on; grid on
+G_el=graph(D.Del.FDks,D.Del.FDke);
+G_el.plot
+legend('Thermal nodes', 'Electrical nodes')
+```   
+
+![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/figs/GridTopology.jpg?raw=true)
+
 
 
 ```
@@ -40,3 +60,12 @@ x_el=[0,11, 0,0,13   % node 1
       1,11,11,0, 0   % node 7
       1,11,11,0,11]; % node 8
 ```    
+
+
+
+
+
+
+```
+ 
+```   
