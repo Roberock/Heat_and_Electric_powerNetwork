@@ -5,7 +5,6 @@
 [] X. Liu, J. Wu, N. Jenkins and A. Bagdanavicius, "Combined analysis of electricity and heat networks", Applied Energy, vol. 162, pp. 1238-1250, 2016.
 
 ## Functionality
- 
 MC_HP.m : power production model for multi-compressor Air-to-Water HPs
 OnOff_HP.m: power production model for the On-Off Air-to_Water Heat Pumps model Maneurop SH 140-4
 HPP.m : sample from homogeneous Poisson Process HPP
