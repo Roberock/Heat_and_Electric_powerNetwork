@@ -76,4 +76,4 @@ Xnom= [x_el x_th];
 
 
 
-![alt text](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/SimulationResultExample.jpg?raw=true)
+![plot](https://github.com/Roberock/Heat_and_Electric_powerNetwork/tree/main/figs/SimulationResultExample.jpg?raw=true)
