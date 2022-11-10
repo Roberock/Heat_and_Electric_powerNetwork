@@ -1,4 +1,4 @@
-# Code for the simulation of a combine heat and electric network
+# Code for the simulation of a combined heat and electric network
 
 ``` bibtex
  @INPROCEEDINGS{8272792,
