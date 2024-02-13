@@ -1,7 +1,6 @@
 classdef DG_module
-    % DG_module class
-    % This class simulate the power production behaviour of different types
-    % of distributed generators 
+    % DG_module class:
+    % to simulate the power produced by distributed generators 
     %% START Proprieties
     properties
         % PV Panel
@@ -78,6 +77,7 @@ classdef DG_module
                 (obj.PVVoc(Idx,:).*obj.PVIsc(Idx,:));
             Pow = ff.*vy.*iy/1000;
         end
+        
         %% power method for the Wind Turbines 
         function Pow = Power_WT(obj,ws,NDn)
             %       ws: wind speed [m/s]
@@ -93,7 +93,8 @@ classdef DG_module
                 Pow = obj.WPrated(ones(NDn,1),:);
             end
         end
-         %   DGs Storage systems (ST)
+        
+        %%   DGs Storage systems (ST)
         function Pow = Power_ST(obj,NDn)
              STlev = rand(NDn, obj.STn).*obj.STEs(ones(NDn,1),:); 
              Pow = STlev;

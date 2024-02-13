@@ -114,7 +114,7 @@ a= 0.2579; b= 0.7264; % distribution parameters
 s=betarnd(a , b,size(ITot)).*ITot; 
 Tamb=normrnd(6,3); % Example of normal distributed Temperature
 subplot(2,1,1)
-% display weather samples
+% display weather samples 
 plot(ITot); hold on;
 xlabel('IX of the simulated hour'); ylabel('irradiance')
 plot(s,'.-r'); legend('clear sky irr', 'with cloud cover')
@@ -235,9 +235,10 @@ Del.Eprice=@(L)-5.13717E-09*L^2+5.31538E-05*L; % price of the electricity from t
 
 %% Barry island: Load the Heat District Network data
 Temp=load('D.mat');
-Dth=Temp.Dth; % load the structure of the 'thermal' network
+Dth=Temp.D.Dth; % load the structure of the 'thermal' network
  
 %% show topology of the two networks (not linked)
+figure
 G_th=graph(Dth.From_Node,Dth.To_Node);
 G_th.plot;
 hold on; grid on
@@ -245,8 +246,6 @@ G_el=graph(Del.FDks,Del.FDke);
 G_el.plot
 legend('Thermal nodes', 'Electrical nodes')
  
-%% Sample External Environmental Conditions
-Tamb=normrnd(6,3); % Heating Temperature Normally Distributed
  
 %% 1) Start With Electric Network Economic Dispatch
 % The Generators Allocation Matrix

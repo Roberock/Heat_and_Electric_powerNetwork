@@ -1,11 +1,9 @@
 %% This script shows how to run a Monte Carlo Simultion Analysis on the Berry isalnd Heat-Power Network
-clc;
-clear variables;
-close all;
+clc; clear variables; close all;
 %% Load Network Data
 Data=load('D.mat');
 D=Data.D;
-D.Del.SCn=800; % Number of Monte Carlo samples (240= 10 days)
+D.Del.SCn=2400; % Number of Monte Carlo samples (240 = 10 days)
 D.Dth.Cost_onoff=10000; % 10000 £ an approx. investment cost for an on-off heat pumps
 %% Initialize a matrix of Distributed Generators
 
@@ -35,13 +33,17 @@ x_el =[0,10,0,20,3; % node 1
 %Turbines and Storage systems
 Xnom.x_el=x_el(:,[1:3,5]);
 Xnom.x_th(:,1)=zeros(D.Dth.Nnodes,1); % allocation matrix of On-OFF Heat Pumps
-Xnom.x_th(1:15,1)=1; % we consider only one type of heat generator (ON-OFF HeatPump)
+Xnom.x_th(1:15,1)=1; % we consider only one type of theraml generator (ON-OFF HeatPump)
 
 %% run the monte carlo
 [RES] = MC_HEATPOWER(Xnom, D); 
+
+
+%% plot the results
 figure
 subplot(5,2,1)
-plot(cumsum(RES.pdfENS));xlabel('Time');title('Cumulative sum of Energy not supplied'); grid on;
+plot(cumsum(RES.pdfENS));xlabel('Time');title('Cumulative sum of Energy not supplied'); grid on; 
+plot(100*(1-RES.pdfENS./(RES.pdfLDel.th+RES.pdfLDel.el)), 'red');xlabel('Time');title('Energy not supplied %'); grid on;
 subplot(5,2,2)
 plot(RES.pdfCg);xlabel('Time');title('Operational cost of the network'); grid on;
 subplot(5,2,3)
@@ -51,7 +53,7 @@ plot(RES.pdfLDel.th);xlabel('Time');title('Thermal load demand'); grid on;
 subplot(5,2,5)
 plot(RES.pdfLDel.th_to_elbackup);xlabel('Time');title('Thermal load served by electric back-ups'); grid on;
 subplot(5,2,6)
-plot(RES.pdfDGP_RES);xlabel('Time');title('Renewable power used'); grid on;
+plot(RES.pdfDGP_RES);xlabel('Time');title('DG (and Renewable) power used'); grid on;
 subplot(5,2,7)
 plot(RES.pdfNETuP);xlabel('Time');title('Total power used'); grid on;
 subplot(5,2,8)
@@ -59,4 +61,4 @@ plot(RES.pdfDGPp(:,1));xlabel('Time');title('Solar PV production'); grid on;
 subplot(5,2,9)
 plot(RES.pdfDGPp(:,2));xlabel('Time');title('Wind Turbines production'); grid on;
 subplot(5,2,10)
-plot(sum(RES.MecStates.FDmecst,2));xlabel('Time');title('Available electrical cables'); grid on;
+plot(100*sum(RES.MecStates.FDmecst,2)/size(RES.MecStates.FDmecst,2));xlabel('Time');title('Available electrical cables %'); grid on;
