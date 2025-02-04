@@ -1,46 +1,52 @@
-# Code for the simulation of a combined heat and electric network
+# **Simulation Code for Combined Heat and Electric Networks**  
 
-``` bibtex
- @INPROCEEDINGS{8272792,
+This repository contains MATLAB code for simulating various operational states of a combined heat and electricity network, integrating distributed generators and heat pumps.  
+
+## **📄 Citation**  
+If you use this code, please cite the following:  
+
+```bibtex
+@INPROCEEDINGS{8272792,
   author={Rocchetta, Roberto and Patelli, Edoardo},
   booktitle={2017 2nd International Conference on System Reliability and Safety (ICSRS)}, 
   title={Stochastic analysis and reliability-cost optimization of distributed generators and air source heat pumps}, 
   year={2017},
-  volume={},
-  number={},
   pages={31-35},
-  doi={10.1109/ICSRS.2017.8272792}}
+  doi={10.1109/ICSRS.2017.8272792}
+}
 ```
+  
 
- 
+## ⚙️ Functionality
 
-## Citations
-[]R. Rocchetta and E. Patelli, "Stochastic analysis and reliability-cost optimization of distributed generators and air source heat pumps," 2017 2nd International Conference on System Reliability and Safety (ICSRS), 2017, pp. 31-35, doi: 10.1109/ICSRS.2017.8272792. <br />
+### Core Functions
+- **`MC_HP.m`** → Power production model for multi-compressor air-to-water heat pumps  
+- **`OnOff_HP.m`** → Power model for an on-off air-to-water heat pump (Maneurop SH 140-4)  
+- **`HPP.m`** → Samples from a homogeneous Poisson Process (HPP)  
+- **`MarkovFailure.m`** → Simulates random failures of network components  
+- **`MC_HEATPOWER(X, D)`** → Monte Carlo simulation of the combined network  
+  - `X`: Allocation matrix  
+  - `D`: Data structure containing grid information  
+- **`DG_module.m`** → Simulates power production from distributed generators (PV, EV, ST, WT, HP)  
+- **`Weather_Simulator.m`** → Simulates weather conditions based on geo-location and day of the year  
+- **`PowEl2PowTh.m`** → Converts electrical power to thermal power  
+- **`OPF.m`** → Optimal power flow function considering virtual generators  
+- **`Clear_Sky_IT.m`** → Computes clear sky irradiance  
 
-[] X. Liu, J. Wu, N. Jenkins and A. Bagdanavicius, "Combined analysis of electricity and heat networks", Applied Energy, vol. 162, pp. 1238-1250, 2016.
+### Data Structures
+- **`D.mat`** → Contains key grid data:
+  - **`Del`** → Electrical grid data  
+  - **`Dth`** → Thermal grid data  
+  - **`Weather`** → Weather data for simulations  
 
-## Functionality
-_MC_HP.m_ : power production model for multi-compressor Air-to-Water HPs ; <br />
-_OnOff_HP.m_ : power production model for the On-Off Air-to_Water Heat Pumps model Maneurop SH 140-4 ; <br />
-_HPP.m_: sample from homogeneous Poisson Process HPP; <br />
-_MarkovFailure.m_ : randomize failures of the network components; <br />
-_MC_HEATPOWER(X, D)_ : Monte Carlo simulation of the combined grid X= allocation matrix D=data structure for the combined grid; <br />
-_D.mat_ data structure containing; <br />
-  _Del_ data for the electrical grid; <br />
-  _Dth_ data for the thermal grid ; <br />
-  _Weather_ : data to simulate the weather conditions; <br />
-_DG_module.m_ : This class simulate the power production behaviour of different types (PV, EV, ST, WT, HP) of distributed generators; <br />
-_Weather_Simulator.m_ : simulates weather conditions on the power grid given geo-location and day of the year (wind speed, irradiance, lightning strike density; <br />
-_PowEl2PowTh.m_ :   function converting electrical power to thermal power; <br />
-_OPF.m_ : Optimal power flow function considering virtual generators; <br />
-_Clear_Sky_IT_ : Compute clear sky irradiance
+---
 
-## Examples 
-_Example1_MonteCarlo.m_ : an example of reliability/resilience assessment (energy not suppllied distribution) by the combined heat and electric power grid. Carried out via Monte Carlo simulation for an allocation matrix; <br />
-_Data_intro_ElectricThermal_NetworkBarryIsalnd.m_ : step-by-step description of the combined grid data and economic dispatch simulation; <br />
+## 📌 Examples
 
+### Example 1: Monte Carlo Simulation for Resilience Assessment  
+This example evaluates reliability and resilience (energy not supplied distribution) using Monte Carlo simulations for a given allocation matrix.
 
-```
+```matlab
 Temp=load('D.mat'); % load data
 D = Temp.D; # all data in the structure D
 Del= Temp.D.Del; % electrical grid data
@@ -48,7 +54,8 @@ Dth= Temp.D.Dth; % thermal grid data
 Wtr= Temp.D.Weather; % weather data
 ```
 
-```
+ 
+```matlab
  %% show topology of the two networks (not linked and separatelly)
 figure(10)
 G_th=graph(D.Dth.From_Node,D.Dth.To_Node);
@@ -65,32 +72,36 @@ legend('Thermal nodes', 'Electrical nodes')
 
 
  
-```
-% electrical allocation matrix
-% MS PV WT EV ST 
-x_el=[0,11, 0,0,13   % node 1
-      1, 0,11,0, 1   % node 2
-      0,11,23,0,10   % node 3
-      0, 0,11,0,21   % node 4
-      0,11, 0,0,11   % node 5
-      0, 0, 0,0, 2   % node 6
-      1,11,11,0, 0   % node 7
-      1,11,11,0,11]; % node 8
-x_th = [5  % node 1
-       0   % node 2
-      0  % node 3
-      0  % node 4
-      0   % node 5
-      14  % node 6
-      0  % node 7
-      0]; % node 8    
-Xnom= [x_el x_th];
+```matlab
+% Electrical allocation matrix (MS, PV, WT, EV, ST)
+# MainSources PhotoV  WindT  ElVehicle StorageUnits
+x_el = [0,11, 0,0,13;  % Node 1
+        1, 0,11,0, 1;  % Node 2
+        0,11,23,0,10;  % Node 3
+        0, 0,11,0,21;  % Node 4
+        0,11, 0,0,11;  % Node 5
+        0, 0, 0,0, 2;  % Node 6
+        1,11,11,0, 0;  % Node 7
+        1,11,11,0,11]; % Node 8
+
+# Aggregated Number of HeatPumps at the electrical nodes
+x_th = [5;  % Node 1
+        0;  % Node 2
+        0;  % Node 3
+        0;  % Node 4
+        0;  % Node 5
+       14;  % Node 6
+        0;  % Node 7
+        0]; % Node 8    
+
+X_candidate = [x_el, x_th];
 ```    
 
 
-```
-% Run MC simulation for data structure D and thermal-eletrical allocation Xnom
-[RES] = MC_HEATPOWER(Xnom,D); 
+```matlab
+% Run Monte Carlo simulation for data structure D and thermal-electrical allocation 
+
+[RES] = MC_HEATPOWER(X_candidate, D);  
 ```   
 
 
